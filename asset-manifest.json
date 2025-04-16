@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/DariaFesiun/calendar-app/static/css/main.13cc17d2.css",
+    "main.js": "/DariaFesiun/calendar-app/static/js/main.11ed5a70.js",
+    "index.html": "/DariaFesiun/calendar-app/index.html",
+    "main.13cc17d2.css.map": "/DariaFesiun/calendar-app/static/css/main.13cc17d2.css.map",
+    "main.11ed5a70.js.map": "/DariaFesiun/calendar-app/static/js/main.11ed5a70.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13cc17d2.css",
+    "static/js/main.11ed5a70.js"
+  ]
+}
