@@ -1,0 +1,218 @@
+@import '/src/styles/colors';
+@import '/src/styles/typography';
+
+// ==== Variables ====
+$btn-height: 32px;
+$btn-width: 69px;
+$btn-bg: #fff;
+$btn-border: 1px solid #E0E0E0;
+$btn-border-dark: 1px solid #D8D8D8;
+$btn-hover-bg: #f3f3f3;
+$color-text-dark: #43425D;
+
+// ==== Mixins ====
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// ==== Layout Containers ====
+.calendarContainer {
+  padding: 19px;
+  background-color: $color-topbar;
+  margin-left: 102px;
+  margin-right: 95px;
+}
+
+.topbarRow {
+  @include flex-between;
+  margin-bottom: 12px;
+}
+
+.toolbarRow {
+  @include flex-between;
+}
+
+// ==== Titles ====
+.sectionTitle {
+  font-size: $font-size-middle;
+  font-weight: $font-weight-regular;
+  font-family: $font-main;
+  color: $color-text-dark;
+  margin: 0;
+}
+
+.calendarTitle {
+  font-family: $font-main;
+  font-size: $font-size-middle;
+  font-weight: $font-weight-regular;
+  color: $color-text-dark;
+  text-align: center;
+  flex: 1;
+}
+
+.calendar-section {
+  padding: 3rem;
+}
+
+.calendar-section h1 {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-big;
+  color: $color-sidebar;
+  padding-bottom: 32px;
+}
+
+
+// ==== Nav Buttons ====
+.navButtons {
+  display: flex;
+  border: $btn-border-dark;
+  border-radius: 6px;
+  overflow: hidden;
+  height: $btn-height;
+  box-shadow: 0px 2px 3px #0000000D;
+}
+
+.navBtn {
+  width: $btn-width;
+  font-size: $font-size-small;
+  font-family: $font-main;
+  font-weight: $font-weight-regular;
+  color: $color-text-dark;
+  background: $btn-bg;
+  border: none;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-right: 1px solid #D8D8D8;
+  }
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}
+
+.today {
+  color: $color-event;
+  font-weight: 600;
+}
+
+// ==== View Buttons ====
+.viewButtons {
+  display: flex;
+  gap: 0;
+  box-shadow: 0px 2px 3px #0000000D;
+}
+
+.viewButton {
+  width: $btn-width;
+  height: $btn-height;
+  font-size: $font-size-small;
+  font-family: $font-main;
+  font-weight: $font-weight-regular;
+  border: $btn-border;
+  background-color: $btn-bg;
+  color: $color-text-dark;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: -1px; 
+  position: relative;
+  z-index: 1;
+
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+    margin-left: 0;
+  }
+
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+
+  &.active {
+    color: $color-event;
+    z-index: 2; 
+  }
+
+  &:hover {
+    background-color: $btn-hover-bg;
+  }
+}
+
+// ==== FullCalendar Overrides ====
+:global(.fc .fc-col-header thead tr th) {
+  border: none !important;
+  border-bottom: 1px solid #EAF0F4 !important;
+  background: #F5F6FA !important;
+  text-align: center !important;
+  height: 45px;
+}
+
+:global(.fc .fc-col-header thead tr th .fc-col-header-cell-cushion) {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #A3A6B4;
+  padding: 16px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+:global(.fc-toolbar-title) {
+  font-family: $font-main;
+  font-size: $font-size-middle;
+  font-weight: $font-weight-regular;
+  color: $color-text-some;
+  text-align: center;
+}
+
+:global(.fc-daygrid-day) {
+  background: $color-text-white;
+  border: 1px solid #EAF0F4;
+  position: relative;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+:global(.fc-day-today) {
+  background-color: #F5F6FA !important;
+  box-shadow: none !important;
+}
+
+:global(.fc-daygrid-day-number) {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: $color-text-dark;
+  position: absolute;
+  top: 17px;
+  right: 15px;
+}
+
+:global(.fc-event) {
+  background-color: $color-event;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 2px 6px;
+  color: white;
+  font-family: $font-main;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 22px;
+}
+
+:global(.fc .fc-daygrid-day:hover) {
+  box-shadow: 0px 3px 6px #00000029;
+  background-color: #fff;
+  cursor: pointer;
+
+  .fc-daygrid-day-number {
+    font-weight: 700 !important;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+}
+
